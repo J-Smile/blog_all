@@ -1,0 +1,24 @@
+server:
+  port: 2300
+spring:
+  data:
+    elasticsearch:
+      cluster-name: my-application
+      cluster-nodes: 127.0.0.1:9300 # 程序连接es的端口号是9300
+  application:
+    name: blog-search-server
+  datasource:
+    username: root
+    password: smile123
+    url: jdbc:mysql://121.36.56.8:3306/blog?characterEncoding=UTF-8&autoReconnect=true&serverTimezone=Asia/Shanghai&useSSL=false
+    driver-class-name: com.mysql.jdbc.Driver
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10000/eureka
+  instance:
+    prefer-ip-address: true
+    ip-address: 127.0.0.1
+    instance-id: ${spring.application.name}.${server.port}
+    lease-renewal-interval-in-seconds: 3
+    lease-expiration-duration-in-seconds: 10

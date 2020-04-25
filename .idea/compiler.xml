@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="smile_blog_utils" />
+        <module name="smile_blog_search" />
+        <module name="smile_blog_web" />
+        <module name="smile_blog_common" />
+        <module name="smile_blog_gateway" />
+        <module name="smile_blog_eureka" />
+        <module name="smile_blog_admin" />
+        <module name="smile_blog_system_config" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="smile_blog" target="1.8" />
+      <module name="smile_blog_admin" target="1.8" />
+      <module name="smile_blog_common" target="1.8" />
+      <module name="smile_blog_eureka" target="1.8" />
+      <module name="smile_blog_gateway" target="1.8" />
+      <module name="smile_blog_search" target="1.8" />
+      <module name="smile_blog_system_config" target="1.8" />
+      <module name="smile_blog_utils" target="1.8" />
+      <module name="smile_blog_web" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="smile_blog" options="-parameters" />
+      <module name="smile_blog_admin" options="-parameters" />
+      <module name="smile_blog_common" options="-parameters" />
+      <module name="smile_blog_eureka" options="-parameters" />
+      <module name="smile_blog_gateway" options="-parameters" />
+      <module name="smile_blog_search" options="-parameters" />
+      <module name="smile_blog_system_config" options="-parameters" />
+      <module name="smile_blog_utils" options="-parameters" />
+      <module name="smile_blog_web" options="-parameters" />
+    </option>
+  </component>
+</project>

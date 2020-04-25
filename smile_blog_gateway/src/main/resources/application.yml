@@ -1,0 +1,26 @@
+server:
+  port: 2000
+spring:
+  application:
+    name: blog-gateway-server
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+#      globalcors:
+#        cors-configurations:
+#          '[/**]': # 匹配所有请求
+#            allowedOrigins: "*"
+#            allowedMethods: "*"
+#            allowedHeader: "*"
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10000/eureka
+  instance:
+    prefer-ip-address: true
+    ip-address: 127.0.0.1
+    instance-id: ${spring.application.name}.${server.port}
+    lease-renewal-interval-in-seconds: 3
+    lease-expiration-duration-in-seconds: 10
