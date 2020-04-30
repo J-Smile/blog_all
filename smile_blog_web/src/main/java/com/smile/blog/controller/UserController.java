@@ -31,7 +31,6 @@ public class UserController {
     @GetMapping
     @ApiOperation("获取当前用户")
     public BaseResult getNowUser(HttpServletRequest request) {
-        System.out.println(1);
         return BaseResult.success(userService.getNowUser(request));
     }
 
