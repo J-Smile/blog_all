@@ -27,7 +27,7 @@ public class BlogService {
     private BlogMapper blogMapper;
 
     @Resource
-    private BlogTagMapper BTMapper;
+    private BlogTagMapper blogTagMapper;
     private final RedisUtils redisUtils;
     private final SortService sortService;
     private final TagService tagService;
@@ -45,12 +45,13 @@ public class BlogService {
     public List<Blog> findAll(){
         return blogMapper.selectAll();
     }
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
+
     public Blog blog(String id) {
         Blog blog = redisUtils.getBlog(id);
         if (blog == null) {
             blog = blogMapper.selectByPrimaryKey(id);
-            List<BlogTag> byBid = BTMapper.findByBid(id);
+            List<BlogTag> byBid = blogTagMapper.findByBlogId(id);
             ArrayList<Tag> tags = new ArrayList<>();
             byBid.forEach(e -> tags.add(tagService.getTag(e.getTid())));
             blog.setTags(tags);

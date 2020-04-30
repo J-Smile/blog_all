@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 @RestController
 @RequestMapping("feedback")
-@Api(description = "反馈 Controller")
+@Api(tags = "feedback")
 public class FeedbackController {
 
     private final FeedbackService feedbackService;

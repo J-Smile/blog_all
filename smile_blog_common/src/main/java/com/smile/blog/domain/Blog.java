@@ -42,7 +42,10 @@ public class Blog implements Serializable {
      */
     @Column(name = "click_count")
     private Integer clickCount;
-    // 评论次数
+
+    /**
+     * 评论次数
+     */
     @Column(name = "discuss_count")
     private Integer discussCount;
 

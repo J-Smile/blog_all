@@ -9,8 +9,8 @@ import java.util.List;
 
 public interface BlogTagMapper extends Mapper<BlogTag> {
     @Select("select * from blog.blog_tag b where b.bid =#{bid} ")
-    List<BlogTag> findByBid(String bid);
+    List<BlogTag> findByBlogId(String bid);
 
     @Select("select b.bid from blog.blog_tag b where b.tid =#{tid} ")
-    List<String> findByBTid(Integer tid);
+    List<String> findByBlogTagId(Integer tid);
 }

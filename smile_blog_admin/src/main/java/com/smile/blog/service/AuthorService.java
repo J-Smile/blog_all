@@ -13,7 +13,7 @@ import javax.annotation.Resource;
  * @create: 2020-04-07 22:23
  */
 @Service
-public class AuthorService {
+public class    AuthorService {
 
     @Resource
     private AuthorMapper authorMapper;

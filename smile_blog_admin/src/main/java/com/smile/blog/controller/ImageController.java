@@ -22,8 +22,8 @@ import java.util.List;
  */
 
 @RestController
-@RequestMapping("/image")
-@Api(description = "图片 Controller")
+@RequestMapping("image")
+@Api(tags = "image")
 public class ImageController {
     private final QiNiuCloudUtil qiNiuCloudUtil;
     private final ImageService imageService;

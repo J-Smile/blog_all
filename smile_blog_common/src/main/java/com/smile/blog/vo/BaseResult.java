@@ -3,6 +3,9 @@ package com.smile.blog.vo;
 
 import lombok.Data;
 
+/**
+ * @author Smile
+ */
 @Data
 public class BaseResult {
     private Integer code;

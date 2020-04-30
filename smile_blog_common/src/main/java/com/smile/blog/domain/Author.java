@@ -21,9 +21,15 @@ public class Author implements Serializable {
     private String name;
 
     private String image;
-    //工作
+
+    /**
+     * 工作
+     */
     private String work;
-    //描述
+
+    /**
+     * 描述
+     */
     private String userDescribe;
 
     private String about;

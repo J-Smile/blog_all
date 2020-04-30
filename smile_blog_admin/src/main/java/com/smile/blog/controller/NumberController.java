@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
  */
 @RestController
 @RequestMapping("num")
-@Api(description = "联系方式 Controller")
+@Api(tags = "num")
 public class NumberController {
     private final NumberService numberService;
 

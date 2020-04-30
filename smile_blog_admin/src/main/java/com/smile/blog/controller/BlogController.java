@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 @RestController
 @RequestMapping("/blog")
-@Api(description = "博客 Controller")
+@Api(tags = {"blog"})
 public class BlogController {
     private final BlogService blogService;
 

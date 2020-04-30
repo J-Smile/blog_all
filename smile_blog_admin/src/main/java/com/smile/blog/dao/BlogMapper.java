@@ -6,6 +6,10 @@ import tk.mybatis.mapper.common.Mapper;
 
 import java.util.List;
 
+/**
+ * @author Smile
+ */
+
 public interface BlogMapper extends Mapper<Blog> {
 
     @Select("SELECT count(*) FROM blog.blog")

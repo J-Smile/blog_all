@@ -23,9 +23,9 @@ import java.util.concurrent.TimeUnit;
 public class RedisUtils {
 
     private final RedisTemplate redisTemplate;
-    private final JWTUtil jwtUtil;
+    private final JwtUtil jwtUtil;
 
-    public RedisUtils(RedisTemplate redisTemplate, JWTUtil jwtUtil) {
+    public RedisUtils(RedisTemplate redisTemplate, JwtUtil jwtUtil) {
         this.redisTemplate = redisTemplate;
         this.jwtUtil = jwtUtil;
     }

@@ -26,7 +26,7 @@ public class BlogTagService {
     }
 
     public List<Blog> getBlogByTid(Integer tid) {
-        List<String> byBTid = blogTagMapper.findByBTid(tid);
-        return blogService.getBlog(byBTid);
+        List<String> byBlogTagId = blogTagMapper.findByBlogTagId(tid);
+        return blogService.getBlog(byBlogTagId);
     }
 }

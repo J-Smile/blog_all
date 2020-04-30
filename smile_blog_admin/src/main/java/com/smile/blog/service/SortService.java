@@ -39,7 +39,8 @@ public class SortService {
     }
 
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
+
     public void delSort(String sid) {
         sortMapper.deleteByPrimaryKey(sid);
         Example example = new Example(Blog.class);

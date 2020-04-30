@@ -8,7 +8,6 @@ package com.smile.blog.config;
 public class Role {
     public static String ADMIN = "admin";
     public static String USER = "user";
-    //游客
     public static String SMILE = "smile";
 
 }

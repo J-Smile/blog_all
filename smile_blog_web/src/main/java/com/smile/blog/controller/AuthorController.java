@@ -1,10 +1,12 @@
 package com.smile.blog.controller;
 
 import com.smile.blog.domain.Author;
+import com.smile.blog.feign.AuthorFeign;
 import com.smile.blog.service.AuthorService;
 import com.smile.blog.vo.BaseResult;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -14,19 +16,20 @@ import org.springframework.web.bind.annotation.*;
  */
 @RequestMapping("author")
 @RestController
-@Api("网站信息")
+@Api(tags = "author")
 public class AuthorController {
 
-    private final AuthorService authorService;
+    private final AuthorFeign authorFeign;
 
-    public AuthorController(AuthorService authorService) {
-        this.authorService = authorService;
+    public AuthorController(AuthorFeign authorFeign) {
+        this.authorFeign = authorFeign;
     }
+
 
     @GetMapping
     @ApiOperation("获取网站信息")
     public BaseResult author() {
-        return BaseResult.success(authorService.author());
+        return authorFeign.author();
     }
 
 }

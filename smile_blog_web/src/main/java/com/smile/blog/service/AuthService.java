@@ -6,9 +6,9 @@ import com.smile.blog.config.Role;
 import com.smile.blog.config.Url;
 import com.smile.blog.domain.MaYunUser;
 import com.smile.blog.domain.User;
-import com.smile.blog.utils.JWTUtil;
+import com.smile.blog.utils.JwtUtil;
 import com.smile.blog.utils.RedisUtils;
-import com.smile.blog.utils.UUid;
+import com.smile.blog.utils.UuidUtils;
 import me.zhyd.oauth.config.AuthConfig;
 import me.zhyd.oauth.model.AuthCallback;
 import me.zhyd.oauth.model.AuthResponse;
@@ -28,10 +28,10 @@ import java.io.IOException;
 @Service
 public class AuthService {
     private final RedisUtils redisUtils;
-    private final JWTUtil jwtUtil;
+    private final JwtUtil jwtUtil;
     private final UserService userService;
 
-    public AuthService(RedisUtils redisUtils, JWTUtil jwtUtil, UserService userService) {
+    public AuthService(RedisUtils redisUtils, JwtUtil jwtUtil, UserService userService) {
         this.redisUtils = redisUtils;
         this.jwtUtil = jwtUtil;
         this.userService = userService;
@@ -45,7 +45,7 @@ public class AuthService {
         User user = userService.findUserByAvatar(maYunUser.getAvatar());
         if (user == null) {
             user = new User();
-            user.setUid(UUid.getId());
+            user.setUid(UuidUtils.getId());
             user.setAvatar(maYunUser.getAvatar());
             user.setNickname(maYunUser.getNickname());
             user.setIfadmin(false);

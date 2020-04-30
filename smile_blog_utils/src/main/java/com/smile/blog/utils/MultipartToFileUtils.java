@@ -15,7 +15,7 @@ public class MultipartToFileUtils {
     public static File multipartToFile(MultipartFile file) throws IOException {
 
         File toFile = null;
-        if (file.equals("") || file.getSize() <= 0) {
+        if ("".equals(file) || file.getSize() <= 0) {
             file = null;
         } else {
             InputStream ins = null;

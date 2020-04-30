@@ -38,6 +38,14 @@ public class CommentReply {
         this.title = title;
         this.userImage = userImage;
     }
+    public CommentReply(String text, int flog, LocalDateTime time, String userName) {
+        this.text = text;
+        this.flog = flog;
+        this.time = time;
+        this.userName = userName;
+    }
+
+
 
     public CommentReply(String text, int flog, LocalDateTime time, String bid, String userName, String title, String userImage) {
         this.text = text;

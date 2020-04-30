@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 @RestController
 @RequestMapping("/comment")
-@Api(description = "评论 Controller")
+@Api(tags = "comment")
 public class CommentController {
 
     private final CommentService commentService;

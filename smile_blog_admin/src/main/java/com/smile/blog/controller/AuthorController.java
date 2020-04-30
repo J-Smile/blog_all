@@ -12,9 +12,10 @@ import org.springframework.web.bind.annotation.*;
  * @description:
  * @create: 2020-04-07 22:22
  */
+@SuppressWarnings("AliDeprecation")
 @RequestMapping("author")
 @RestController
-@Api(description = "网站信息 Controller")
+@Api(tags = "author")
 public class AuthorController {
 
     private final AuthorService authorService ;

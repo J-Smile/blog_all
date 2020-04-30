@@ -9,8 +9,7 @@ import com.smile.blog.domain.BlogTag;
 import com.smile.blog.domain.Tag;
 import com.smile.blog.domain.User;
 import com.smile.blog.utils.RedisUtils;
-import com.smile.blog.utils.UUid;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.smile.blog.utils.UuidUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -32,7 +31,7 @@ public class BlogService {
     private BlogMapper blogMapper;
 
     @Resource
-    private BlogTagMapper BTMapper;
+    private BlogTagMapper blogTagMapper;
     private final RedisUtils redisUtils;
     private final SortService sortService;
     private final TagService tagService;
@@ -44,9 +43,9 @@ public class BlogService {
     }
 
 
-    @Transactional
+    @Transactional(rollbackFor =Exception.class )
     public void addBlog(Blog blog, HttpServletRequest request) {
-        blog.setBid(UUid.getId());
+        blog.setBid(UuidUtils.getId());
         blog.setClickCount(0);
         blog.setStatus(true);
         blog.setCreateTime(new Date());
@@ -60,7 +59,7 @@ public class BlogService {
             BlogTag blogTag = new BlogTag();
             blogTag.setBid(blog.getBid());
             blogTag.setTid(tid);
-            BTMapper.insert(blogTag);
+            blogTagMapper.insert(blogTag);
         }
     }
 
@@ -73,12 +72,12 @@ public class BlogService {
         blogMapper.deleteByPrimaryKey(bid);
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Blog blog(String id) {
         Blog blog = redisUtils.getBlog(id);
         if (blog == null) {
             blog = blogMapper.selectByPrimaryKey(id);
-            List<BlogTag> byBid = BTMapper.findByBid(id);
+            List<BlogTag> byBid = blogTagMapper.findByBid(id);
             ArrayList<Tag> tags = new ArrayList<>();
             byBid.forEach(e -> tags.add(tagService.getTag(e.getTid())));
             blog.setTags(tags);
@@ -100,18 +99,18 @@ public class BlogService {
         blog.setUpdateTime(new Date());
         blogMapper.updateByPrimaryKey(blog);
 
-        List<BlogTag> byBid = BTMapper.findByBid(blog.getBid());
-        byBid.forEach(e -> BTMapper.delete(e));
+        List<BlogTag> byBid = blogTagMapper.findByBid(blog.getBid());
+        byBid.forEach(e -> blogTagMapper.delete(e));
         BlogTag blogTag = new BlogTag();
         blogTag.setBid(blog.getBid());
         for (int tid : blog.getTids()) {
             blogTag.setTid(tid);
-            BTMapper.insert(blogTag);
+            blogTagMapper.insert(blogTag);
         }
         redisUtils.saveBlog(blog.getBid(), blog);
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Boolean recommend(String bid) {
         Blog blog = blogMapper.selectByPrimaryKey(bid);
         blog.setLevel(!blog.getLevel());

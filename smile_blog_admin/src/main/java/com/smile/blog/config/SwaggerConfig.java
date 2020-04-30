@@ -23,15 +23,15 @@ public class SwaggerConfig {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.smile.blog.controller"))//扫描的包路径
+                .apis(RequestHandlerSelectors.basePackage("com.smile.blog.controller"))
                 .build();
     }
 
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("博客后台")//文档说明
-                .version("1.0.0")//文档版本说明
+                .title("博客后台")
+                .version("1.0.0")
                 .build();
     }
 

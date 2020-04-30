@@ -26,7 +26,7 @@ public class FriendshipService {
     }
 
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public void friendship(Friendship friendship, HttpServletRequest request) {
         friendship.setUid(userService.getNowUser(request).getUid());
         friendship.setTime(LocalDateTime.now());

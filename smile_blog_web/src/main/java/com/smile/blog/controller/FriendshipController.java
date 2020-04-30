@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 
 @RestController
 @RequestMapping("friendship")
-@Api(description = "友链 Controller" )
+@Api(tags = "friendship")
 public class FriendshipController {
 
     private final FriendshipService friendshipService;

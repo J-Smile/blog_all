@@ -55,7 +55,7 @@ public class CommentService {
         return new PageInfo<>(allComment);
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public void deleteComment(int commentId) {
         commentMapper.deleteByPrimaryKey(commentId);
         List<Reply> byCommentId = replyService.findByCommentId(commentId);

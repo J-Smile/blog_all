@@ -3,6 +3,9 @@ package com.smile.blog.vo;
 
 import lombok.Data;
 
+/**
+ * @author Smile
+ */
 @Data
 public class CodeMessage {
     private Integer code;

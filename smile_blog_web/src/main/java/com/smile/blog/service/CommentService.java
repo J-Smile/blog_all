@@ -52,7 +52,7 @@ public class CommentService {
         blogService.addDiscussCount(bid);
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public void save(int ismag, @NotNull Comment comment, String token) {
         comment.setIsmsg(ismag);
         User user = redisUtils.getUser(token);

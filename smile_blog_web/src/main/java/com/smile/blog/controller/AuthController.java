@@ -1,21 +1,8 @@
 package com.smile.blog.controller;
 
 
-import com.alibaba.fastjson.JSONObject;
-import com.smile.blog.config.Role;
-import com.smile.blog.domain.MaYunUser;
-import com.smile.blog.domain.User;
 import com.smile.blog.service.AuthService;
-import com.smile.blog.service.UserService;
-import com.smile.blog.utils.JWTUtil;
-import com.smile.blog.utils.RedisUtils;
-import me.zhyd.oauth.config.AuthConfig;
 import me.zhyd.oauth.model.AuthCallback;
-import me.zhyd.oauth.model.AuthResponse;
-import me.zhyd.oauth.request.AuthGiteeRequest;
-import me.zhyd.oauth.request.AuthRequest;
-import me.zhyd.oauth.utils.AuthStateUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

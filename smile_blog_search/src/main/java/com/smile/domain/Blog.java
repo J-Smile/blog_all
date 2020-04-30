@@ -31,7 +31,7 @@ public class Blog {
     private String title;
 
     @Field(index = false, type = FieldType.Keyword)
-    private String images; // 图片地址
+    private String images;
 
     private Integer clickCount;
 

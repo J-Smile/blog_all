@@ -13,6 +13,10 @@ import tk.mybatis.mapper.common.Mapper;
  */
 public interface AuthorMapper extends Mapper<Author> {
 
+    /**
+     * 获取网站信息
+     * @return
+     */
     @Select("select * from blog.author a where a.id = 1 ;")
     Author author();
 }

@@ -24,12 +24,15 @@ public class CorsFilter implements WebFilter {
 
     private static final String MAX_AGE = "18000L";
 
+
+    private static final String ICO = "/favicon.ico";
+
     @Override
     public Mono<Void> filter(ServerWebExchange ctx, WebFilterChain chain) {
         ServerHttpRequest request = ctx.getRequest();
         String path = request.getPath().value();
         ServerHttpResponse response = ctx.getResponse();
-        if ("/favicon.ico".equals(path)) {
+        if (ICO.equals(path)) {
             response.setStatusCode(HttpStatus.OK);
             return Mono.empty();
         }

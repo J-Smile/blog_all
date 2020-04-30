@@ -3,8 +3,8 @@ server:
 spring:
   data:
     elasticsearch:
-      cluster-name: my-application
-      cluster-nodes: 127.0.0.1:9300 # 程序连接es的端口号是9300
+      cluster-name: docker-cluster
+      cluster-nodes: 121.36.22.179:9300 # 程序连接es的端口号是9300
   application:
     name: blog-search-server
   datasource:

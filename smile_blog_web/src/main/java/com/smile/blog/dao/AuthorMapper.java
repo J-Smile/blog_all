@@ -11,6 +11,9 @@ import tk.mybatis.mapper.common.Mapper;
  * @create: 2020-04-07 22:22
  */
 public interface AuthorMapper extends Mapper<Author> {
+    /**
+     * @return
+     */
     @Select("select * from blog.author a where a.id = 1 ;")
     Author author();
 }

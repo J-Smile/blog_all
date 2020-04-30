@@ -7,6 +7,9 @@ import tk.mybatis.mapper.common.Mapper;
 
 import java.util.List;
 
+/**
+ * @author Smile
+ */
 public interface SortMapper extends Mapper<Sort> {
 
     @Select("select * from blog.sort s where s.status = 1")

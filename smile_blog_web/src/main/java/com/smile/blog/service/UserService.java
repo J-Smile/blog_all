@@ -43,7 +43,7 @@ public class UserService {
         return userDao.selectByPrimaryKey(uid);
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public void editUser(User user) {
         try {
             userDao.updateByPrimaryKey(user);

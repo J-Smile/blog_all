@@ -4,7 +4,7 @@ import com.smile.blog.config.Role;
 import com.smile.blog.dao.UserDao;
 import com.smile.blog.domain.User;
 import com.smile.blog.exception.UserException;
-import com.smile.blog.utils.JWTUtil;
+import com.smile.blog.utils.JwtUtil;
 import com.smile.blog.utils.RedisUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -27,9 +27,9 @@ public class UserService {
     private UserDao userDao;
 
     private final RedisUtils redisUtils;
-    private final JWTUtil jwtUtil;
+    private final JwtUtil jwtUtil;
 
-    public UserService(JWTUtil jwtUtil, RedisUtils redisUtils) {
+    public UserService(JwtUtil jwtUtil, RedisUtils redisUtils) {
         this.jwtUtil = jwtUtil;
         this.redisUtils = redisUtils;
     }
@@ -58,7 +58,7 @@ public class UserService {
     }
 
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public void editUser(User user) {
         try {
             userDao.updateByPrimaryKey(user);

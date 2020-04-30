@@ -25,7 +25,7 @@ public class SearchController {
     @GetMapping("{title}")
     @ApiOperation("模糊查询博客")
     public BaseResult findByTitle(@PathVariable String title) {
-        return BaseResult.success(searchService.findByTitle(title));
+        return searchService.findByTitle(title);
     }
 
     @GetMapping
